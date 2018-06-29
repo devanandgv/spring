@@ -8,11 +8,13 @@ import org.apache.commons.dbcp2.BasicDataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+import com.test.spring.web.emzbankcustomer.aspect.CustomerControllerAspect;
 import com.test.spring.web.emzbankcustomer.dao.CustomerDAO;
 import com.test.spring.web.emzbankcustomer.dao.CustomerDAOImpl;
 import com.test.spring.web.emzbankcustomer.model.Customer;
@@ -21,6 +23,7 @@ import com.test.spring.web.emzbankcustomer.service.CustomerServiceImpl;
 
 @Configuration
 @EnableWebMvc
+@EnableAspectJAutoProxy
 @ComponentScan(basePackages = "com.test.spring.web.emzbankcustomer")
 public class EMZBankSpringConfiguration {
 
@@ -69,5 +72,11 @@ public class EMZBankSpringConfiguration {
 	public CustomerDAO customerDAO() {
 
 		return new CustomerDAOImpl();
+	}
+	
+	@Bean
+	public CustomerControllerAspect customerControllerAspect() {
+
+		return new CustomerControllerAspect();
 	}
 }
