@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 
 
 @Entity
@@ -19,6 +21,7 @@ public class Customer implements Serializable{
 	private static final long serialVersionUID = 3890319237127362004L;
 	@Id
 	@Column(name = "customer_id")
+	@JsonProperty("id")
 	private int id;
 	@Column(name = "customer_name")
 	private String name;
