@@ -6,7 +6,7 @@ import org.hibernate.SessionFactory;
 import com.dev.hibernate.mapping.onetoone.model.Customer;
 import com.dev.hibernate.mapping.onetoone.model.CustomerDetails;
 
-public class Main {
+public class ForeignKeyMappingMain {
 
 	public static void main(String[] args) {
 
