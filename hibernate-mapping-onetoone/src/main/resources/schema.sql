@@ -20,4 +20,27 @@ CREATE TABLE IF NOT EXISTS `testdb`.`customer_details` (
   `father_name` VARCHAR(45) NULL,
   `mother_name` VARCHAR(45) NULL,
   PRIMARY KEY (`customer_details_id`))
-ENGINE = InnoDB
+ENGINE = InnoDB ;
+CREATE TABLE IF NOT EXISTS `testdb`.`student_details` (
+  `student_details_id` INT NOT NULL AUTO_INCREMENT,
+  `roll_no` INT NULL,
+  `class` INT NULL,
+  `teacher_name` VARCHAR(45) NULL,
+  `major_subject` VARCHAR(45) NULL,
+  PRIMARY KEY (`student_details_id`))
+ENGINE = InnoDB;
+
+CREATE TABLE IF NOT EXISTS `testdb`.`student` (
+  `student_id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NULL,
+  `age` INT NULL,
+  `father_name` VARCHAR(45) NULL,
+  `mother_name` VARCHAR(45) NULL,
+  `gender` VARCHAR(45) NULL,
+  PRIMARY KEY (`student_id`),
+  CONSTRAINT `student_id`
+    FOREIGN KEY (`student_id`)
+    REFERENCES `testdb`.`student_details` (`student_details_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
